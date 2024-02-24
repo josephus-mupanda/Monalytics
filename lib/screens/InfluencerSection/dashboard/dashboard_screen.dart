@@ -3,10 +3,6 @@ import 'package:monalystics/screens/InfluencerSection/analysis/analysis_screen.d
 import 'package:monalystics/screens/InfluencerSection/influencers/influencer_screen.dart';
 import 'package:monalystics/screens/InfluencerSection/searchEngine/search_screen.dart';
 import 'package:monalystics/screens/InfluencerSection/stock/stock_screen.dart';
-import 'package:monalystics/screens/analysis/analysis_screen.dart';
-import 'package:monalystics/screens/influencers/influencer_screen.dart';
-import 'package:monalystics/screens/searchEngine/search_screen.dart';
-import 'package:monalystics/screens/stock/stock_screen.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter/material.dart';
 import '../../../config/style/colors.dart';

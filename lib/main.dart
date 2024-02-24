@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:monalystics/controllers/MenuInfluencerController.dart';
 import 'package:monalystics/screens/InfluencerSection/dashboard/dashboard_screen.dart';
-import 'package:monalystics/screens/dashboard/dashboard_screen.dart';
 import 'package:monalystics/screens/forms/input_form.dart';
 import 'package:provider/provider.dart';
 import 'controllers/MenuProjectController.dart';
 import 'controllers/enums.dart';
 import 'screens/chooseAccounts/chooseAccount.dart';
-import 'screens/influencers/influencer_screen.dart';
+import 'screens/companySection/dashboard/dashboard_screen.dart';
 import 'screens/login/components/login.dart';
 import 'screens/login/components/register.dart';
 import 'screens/login/components/resetPassword.dart';
@@ -15,11 +14,9 @@ import 'config/constants.dart';
 import 'config/routes/routes.dart';
 import 'config/style/fonts.dart';
 import 'config/values/values.dart';
-import 'screens/analysis/analysis_screen.dart';
 import 'screens/onBoardingScreens/onboarding_screen.dart';
-import 'screens/searchEngine/search_screen.dart';
 import 'screens/splashScreen/splashScreen.dart';
-import 'screens/stock/stock_screen.dart';
+
 
 void main() {
 
