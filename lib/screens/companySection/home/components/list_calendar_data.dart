@@ -9,7 +9,6 @@ class ListCalendarData extends StatelessWidget {
 
   const ListCalendarData({Key? key, required this.calendarData})
       : super(key: key);
-
   @override
   Widget build(BuildContext context) {
     return ListView(

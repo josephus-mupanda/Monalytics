@@ -268,31 +268,26 @@ class _RegisterState extends State<Register>  {
                   text: "Sign up",
                   onPressed: () async {
                     if (keysR.currentState!.validate() && passR == cPass) {
-                      Navigator.pushNamed(context, AppRoutes.companyDashboard);
-
-                      // final company = Company(
-                      //   companyName: companyName!,
-                      //   email: companyEmail!,
-                      //   sector: companySector!,
-                      //   password: passR!,
-                      // );
-                      // // Set isRegistering to true to show the loading indicator
-                      // setState(() {
-                      //   isRegistering = true;
-                      // });
-                      // if (isRegistering) loading(context);
-                      // try {
-                      //   await DBServices.registerCompany(company);
-                      //   messageSuccess(context, msg: "Registration successful");
-                      //   Navigator.pushNamed(context, AppRoutes.signIn);
-                      //   isRegistering = false;
-                      // } catch (error) {
-                      //   messageError(context, msg: "Registration failed");
-                      // } finally {
-                      //   setState(() {
-                      //     isRegistering = false;
-                      //   });
-                      // }
+                      final company = Company(
+                        companyName: companyName!,
+                        email: companyEmail!,
+                        sector: companySector!,
+                        password: passR!,
+                      );
+                      loading(context);
+                      bool register = await DBServices.registerCompany(company);
+                      Navigator.of(context).pop();
+                      if (register != null) {
+                        if (register) {
+                          // Registration successful - navigate to home
+                          //Navigator.of(context).pop();
+                          messageSuccess(context, msg: "Registration successful");
+                          Navigator.pushNamed(context, AppRoutes.signIn);
+                        } else {
+                          messageError(context, msg: "Registration failed");
+                          //Navigator.of(context).pop();
+                        }
+                      }
                     }
                   },
                 ),

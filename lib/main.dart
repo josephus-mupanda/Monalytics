@@ -17,7 +17,6 @@ import 'config/values/values.dart';
 import 'screens/onBoardingScreens/onboarding_screen.dart';
 import 'screens/splashScreen/splashScreen.dart';
 
-
 void main() {
 
   WidgetsFlutterBinding.ensureInitialized();

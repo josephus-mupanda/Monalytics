@@ -192,7 +192,6 @@ class _LoginPageState extends State<LoginPage>  {
                   ),
                   maxLines: 1,
                   obscureText: showPassword ? false : true,
-
                   onChanged: (String? value) {
                     passL = value!;
                   },
@@ -210,17 +209,27 @@ class _LoginPageState extends State<LoginPage>  {
                   text: "Login",
                   onPressed: () async {
                     if (keysL.currentState!.validate()) {
-                      Navigator.pushNamed(context, AppRoutes.influencerDashboard);
-                      // setState(() {
-                      //   isLoading = true;
-                      // });
-                      // if (isLoading) loading(context);
-                      //
+                      loading(context);
+                      bool login = await DBServices.loginCompany(emailL!, passL!);
+                      Navigator.of(context).pop();
+                      if (login != null) {
+
+                        if (login) {
+                          // login successful - navigate to home
+                         // Navigator.of(context).pop();
+                          messageSuccess(context, msg: "Login successful");
+                          Navigator.pushNamed(context, AppRoutes.companyDashboard);
+                        } else {
+                          messageError(context, msg: "Login failed");
+                          //Navigator.of(context).pop();
+                        }
+                      }
+
                       // try {
                       //   await Future.delayed(Duration(seconds: 2));
                       //   String loginResult = await DBServices.loginCompany(emailL!, passL!);
                       //   messageSuccess(context, msg: loginResult);
-                      //   Navigator.pushNamed(context, AppRoutes.home);
+                      //   Navigator.pushNamed(context, AppRoutes.companyDashboard);
                       //   isLoading = false;
                       // } catch (error) {
                       //   messageError(context, msg: "Login failed");
@@ -229,6 +238,7 @@ class _LoginPageState extends State<LoginPage>  {
                       //     isLoading = false;
                       //   });
                       // }
+
                     }
                   },
                 ),
